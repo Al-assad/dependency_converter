@@ -19,7 +19,7 @@ class App : Application() {
         val fxmlloader = FXMLLoader(javaClass.getResource("sample.fxml"));
         val root:Parent = fxmlloader.load();
 
-        primaryStage.title = "Dependency Converter"
+        primaryStage.title = "Coord Converter"
         primaryStage.scene = Scene(root, 500.0, 500.0)
         primaryStage.show()
     }
