@@ -16,7 +16,11 @@ class StrConverter(pattern:String){
     var splitCh:Array<String> = arrayOf(":",":");
     var coordList:ArrayList<Coord> = ArrayList();   //储存依赖坐标列表
 
-    val fetchList:Array<String> = arrayOf("spring","struts","hibernate","mybatis"); //抓取列表
+    val mergeList:Array<String> = arrayOf("spring","struts2","hibernate","mybatis"); //需要合并的列表
+
+    private var propList:ArrayList<ArrayList<String>> = ArrayList();    //
+
+
 
     init{
         var str = pattern.trim();
@@ -75,34 +79,109 @@ class StrConverter(pattern:String){
     /**生成XML文本
      * @param fetch 是否为提取参数模式，提取模式只针对MSSH框架进行合并，其余框架一律不合并
      */
-    fun toXML(fetch:Boolean):String{
+    fun toXML(fetch:Boolean = false):String{
         if(fetch){
+            var str = "<properties>\n";
+            fetch();
+            for(prop in propList){
+                str += "    <${prop.get(0)+".version"}>${prop.get(1)}</${prop.get(0)+".version"}>\n";
+            }
+            for (coord in coordList) {
+                if(check(coord) == null)
+                    str += "    <${coord.artifactId+".version"}>${coord.version}</${coord.artifactId+".version"}>\n";
+            }
+            str += "</properties>\n\n"
+            str +="<dependencies>\n";
+
+            for(coord in coordList){
+                val flag = check(coord);
+                if(flag != null)
+                    str += coord.toParamXML(flag)+"\n"
+                else
+                    str += coord.toParamXML(coord.artifactId)+"\n"
+            }
+            str += "</dependencies>";
+            return str;
+        }else{
             var str = "<dependencies>\n"
             for(coord in coordList){
                 str += coord.toXML()+"\n";
             }
             str += "</dependencies>";
             return str;
-        }else{
-
         }
 
+    }
+
+    private fun check(coord:Coord):String?{
+        for(prop in propList){
+            if(coord.artifactId.startsWith(prop.get(0)) && coord.version == prop.get(1))
+                return prop.get(0);
+        }
+        return null;
     }
 
 
     /**生成gradle文本
      * @param fetcg 是否提取参数，提取模式只针对MSSH框架进行合并，其余框架爱依一律不合并
      */
-    fun toGradle():String{
-        var str = "dependencies{\n"
-        for(coord in coordList){
-            str += coord.toGradle()+"\n";
+    fun toGradle(fetch:Boolean = false):String{
+        if(fetch){
+            var str = "ext{\n";
+            fetch();
+            for(prop in propList){
+                str += "    ${prop.get(0)+"_version"} = '${prop.get(1)}'\n";
+            }
+            for (coord in coordList) {
+                if(check(coord) == null)
+                    str += "    ${coord.artifactId.replace('-','_')+"_version"} = '${coord.version}'\n";
+            }
+            str += "}\n\n"
+            str +="dependencies{\n";
+
+            for(coord in coordList){
+                val flag = check(coord);
+                if(flag != null)
+                    str += coord.toParamGradle(flag)+"\n"
+                else
+                    str += coord.toParamGradle(coord.artifactId).replace('-','_')+"\n"
+            }
+            str += "}";
+            return str;
+        }else{
+            var str = "dependencies{\n"
+            for(coord in coordList){
+                str += coord.toGradle()+"\n";
+            }
+            str += "}";
+            return str;
         }
-        str += "}";
-        return str;
     }
 
 
+
+
+    /** 抓取依赖列表中包含 MSSH 的core版本号
+     */
+    private fun fetch(){
+        var flagList = ArrayList<String>();
+        for(coord in coordList){
+            if(propList.size == mergeList.size )
+                return;
+            val artifactId = coord.artifactId;
+            for(merge in mergeList){
+                if(merge in flagList)
+                    continue;
+                if(artifactId == merge+"-core"){
+                    flagList.add(merge);
+                    val list = ArrayList<String>();
+                    list.add(merge);
+                    list.add(coord.version);
+                    propList.add(list);
+                }
+            }
+        }
+    }
 
 
 }
@@ -136,9 +215,24 @@ org.springframework:spring-websocket:4.3.11.RELEASE
 
 //测试
 org.springframework:spring-test:4.3.11.RELEASE
+//核心库、标签插件（必需）
+org.apache.struts:struts2-core:2.5.13
+org.apache.struts:struts-annotations:1.0.6
+//支持ognl表达式
+ognl:ognl:3.1.15
+
+//与spring整合插件
+org.apache.struts:struts2-spring-plugin:2.5.13
+//用于支持AJAX的json解析包
+org.apache.struts:struts2-json-plugin:2.5.13
+
+ //支持文件上传
+commons-io:commons-io:2.5
+commons-fileupload:commons-fileupload:1.3.3
+org.apache.commons:commons-lang3:3.6
 
     """.trimIndent());
-    println(converter.toGradle());
+    println(converter.toGradle(true));
 
 
 

@@ -19,10 +19,24 @@ class Coord(val groupId:String, val artifactId:String, val version:String){
         """.trimMargin("|");
         return str;
     }
+    fun toParamXML(versionFlag:String):String{
+        val str:String = """    <dependency>
+            |       <groupId>$groupId</groupId>
+            |       <artifactId>$artifactId</artifactId>
+            |       <version>${'$'}{$versionFlag.version}</version>
+            |   </dependency>
+        """.trimMargin("|");
+        return str;
+    }
+
 
     //以 build.gradle 依赖格式输出
     fun toGradle():String{
         val str:String = "  complie '$groupId:$artifactId:$version'";
+        return str;
+    }
+    fun toParamGradle(versionFlag:String):String{
+        val str:String = "  complie '$groupId:$artifactId:${'$'}{${versionFlag}_version}'";
         return str;
     }
 
