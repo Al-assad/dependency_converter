@@ -162,7 +162,7 @@ class Controller{
                 val parser = GradleParser();
                 parser.compile(taInputP3.text.trim());
                 val result = parser.toXML(false);
-                taInputP3.text = result;
+                taOutputP3.text = result;
             }
         };
         btList3[1].setOnAction { event ->
@@ -170,7 +170,7 @@ class Controller{
                 val parser = GradleParser();
                 parser.compile(taInputP3.text.trim());
                 val result = parser.toXML(true);
-                taInputP3.text = result;
+                taOutputP3.text = result;
             }
         };
         btList3[2].setOnAction { event ->
@@ -178,7 +178,7 @@ class Controller{
                 val parser = GradleParser();
                 parser.compile(taInputP3.text.trim());
                 val result = parser.toGradle(false);
-                taInputP3.text = result;
+                taOutputP3.text = result;
             }
         };
         btList3[3].setOnAction { event ->
@@ -186,7 +186,7 @@ class Controller{
                 val parser = GradleParser();
                 parser.compile(taInputP3.text.trim());
                 val result = parser.toGradle(true);
-                taInputP3.text = result;
+                taOutputP3.text = result;
             }
         };
 

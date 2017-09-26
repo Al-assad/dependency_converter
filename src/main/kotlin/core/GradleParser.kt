@@ -32,7 +32,7 @@ internal class GradleParser:Parser{
             if(line.isEmpty() || line.startsWith("//")|| line.startsWith("/*")||line.startsWith("*/") || line.startsWith("*"))
                 continue;
             if(!pass){
-                if(line.startsWith("ext") || line.contains("{")) {     //当存在参数模式时，抓取参数属性键值
+                if(line.startsWith("ext") && line.contains("{")) {     //当存在参数模式时，抓取参数属性键值
                     fetch = true;
                     pass = true;
                     //生成字典
@@ -97,7 +97,7 @@ internal class GradleParser:Parser{
         }else{
             for(line in depenList){
                 var list = line.split(":");
-                coordList.add(Coord(list[0].trim(),list[1].trim(),list[3].trim()));
+                coordList.add(Coord(list[0].trim(),list[1].trim(),list[2].trim()));
             }
         }
 
