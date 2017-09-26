@@ -92,56 +92,5 @@ internal class StrParser(pattern:String):Parser{
 
 }
 
-fun main(args: Array<String>) {
-    var converter = StrParser("g:a:v");
-    converter.complie("""//核心库(必需)
-org.springframework:spring-core:4.3.11.RELEASE
-org.springframework:spring-beans:4.3.11.RELEASE
-org.springframework:spring-context:4.3.11.RELEASE
-org.springframework:spring-context-support:4.3.11.RELEASE
-org.springframework:spring-expression:4.3.11.RELEASE
 
-//Aop 支持
-org.springframework:spring-aop:4.3.11.RELEASE
-org.springframework:spring-aspects:4.3.11.RELEASE
-org.springframework:spring-instrument:4.3.11.RELEASE
-
-//数据库连接，映射
-org.springframework:spring-jdbc:4.3.11.RELEASE
-org.springframework:spring-tx:4.3.11.RELEASE
-org.springframework:spring-orm:4.3.11.RELEASE
-org.springframework:spring-oxm:4.3.11.RELEASE
-org.springframework:spring-jms:4.3.11.RELEASE
-
-//web 支持(Spring MVC 附加部分)
-org.springframework:spring-web:4.3.11.RELEASE
-org.springframework:spring-webmvc:4.3.11.RELEASE
-org.springframework:spring-webmvc-portlet:4.3.11.RELEASE
-org.springframework:spring-websocket:4.3.11.RELEASE
-
-//测试
-org.springframework:spring-test:4.3.11.RELEASE
-//核心库、标签插件（必需）
-org.apache.struts:struts2-core:2.5.13
-org.apache.struts:struts-annotations:1.0.6
-//支持ognl表达式
-ognl:ognl:3.1.15
-
-//与spring整合插件
-org.apache.struts:struts2-spring-plugin:2.5.13
-//用于支持AJAX的json解析包
-org.apache.struts:struts2-json-plugin:2.5.13
-
- //支持文件上传
-commons-io:commons-io:2.5
-commons-fileupload:commons-fileupload:1.3.3
-org.apache.commons:commons-lang3:3.6
-
-    """.trimIndent());
-    println(converter.toGradle(true));
-
-
-
-
-}
 

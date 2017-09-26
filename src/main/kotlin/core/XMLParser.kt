@@ -22,14 +22,4 @@ internal class XMLParser:Parser{
 
 }
 
-/*
-fun main(args: Array<String>) {
-    var parser:XMLParser = XMLParser();
-    val str = ""
 
-
-    parser.compile(str);
-    println(parser.toGradle(true));
-
-
-}*/
