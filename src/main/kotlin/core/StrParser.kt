@@ -10,7 +10,7 @@ import java.util.regex.Pattern
  * Description: 普通字符转换类:支持被匹配的字符串含有注释
  */
 
-class StrConverter(pattern:String){
+class StrParser(pattern:String):Parser{
 
     var coordCh:Array<String> = arrayOf("g","a","v");
     var splitCh:Array<String> = arrayOf(":",":");
@@ -75,7 +75,7 @@ class StrConverter(pattern:String){
     /**生成XML文本
      * @param fetch 是否为提取参数模式，提取模式只针对MSSH框架进行合并，其余框架一律不合并
      */
-    fun toXML(fetch:Boolean = false):String{
+    override fun toXML(fetch:Boolean ):String{
         return coordList.toXML(fetch);
     }
 
@@ -84,7 +84,7 @@ class StrConverter(pattern:String){
     /**生成gradle文本
      * @param fetcg 是否提取参数，提取模式只针对MSSH框架进行合并，其余框架爱依一律不合并
      */
-    fun toGradle(fetch:Boolean = false):String{
+    override fun toGradle(fetch:Boolean ):String{
         return coordList.toGradle(fetch);
     }
 
@@ -94,9 +94,10 @@ class StrConverter(pattern:String){
 
 
 }
+/*
 
 fun main(args: Array<String>) {
-    var converter = StrConverter("g:a:v");
+    var converter = StrParser("g:a:v");
     converter.complie("""//核心库(必需)
 org.springframework:spring-core:4.3.11.RELEASE
 org.springframework:spring-beans:4.3.11.RELEASE
@@ -144,7 +145,6 @@ org.apache.commons:commons-lang3:3.6
     println(converter.toGradle(true));
 
 
-
-
 }
+*/
 

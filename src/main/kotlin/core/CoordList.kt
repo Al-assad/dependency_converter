@@ -90,6 +90,7 @@ class CoordList{
         }
     }
 
+    //确认coord是否包含在属性依赖列表中
     private fun check(coord:Coord):String?{
         for(prop in propList){
             if(coord.artifactId.startsWith(prop.get(0)) && coord.version == prop.get(1))
@@ -98,8 +99,7 @@ class CoordList{
         return null;
     }
 
-    /** 抓取依赖列表中包含 MSSH 的core版本号
-     */
+    // 抓取依赖列表中包含 MSSH 的core版本号
     private fun fetch(){
         var flagList = ArrayList<String>();
         for(coord in coordList){
