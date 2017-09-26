@@ -15,7 +15,6 @@ import javafx.stage.Stage
 class App: Application() {
     override fun start(primaryStage: Stage?) {
         val root: Parent = FXMLLoader.load<Parent>(javaClass.classLoader.getResource("main.fxml"));  //加载fxml视图资源
-
         primaryStage!!.title = "Coord Converter";
         primaryStage.scene = Scene(root,800.0,600.0);
         primaryStage.show();

@@ -1,27 +1,261 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="594.0"
-         tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
-        fx:controller="view.Controller">
+<TabPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1200.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Controller">
   <tabs>
     <Tab text="str parser">
-      <content>
-        <AnchorPane />
-      </content>
+         <content>
+            <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+               <top>
+                  <VBox prefWidth="100.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label text="normal string → pom.xml/build.gradle">
+                           <padding>
+                              <Insets bottom="10.0" left="20.0" top="10.0" />
+                           </padding>
+                           <font>
+                              <Font name="Book Antiqua" size="18.0" />
+                           </font>
+                        </Label>
+                        <VBox spacing="15.0">
+                           <children>
+                              <Separator prefWidth="200.0" />
+                              <FlowPane hgap="15.0">
+                                 <children>
+                                    <Label text="Pattern" />
+                                    <TextField fx:id="ftPatternP1" text="g:a:v" />
+                                 </children>
+                              </FlowPane>
+                              <FlowPane>
+                                 <children>
+                                    <Label text="coverting to">
+                                       <FlowPane.margin>
+                                          <Insets right="20.0" />
+                                       </FlowPane.margin>
+                                    </Label>
+                                    <ToggleButton fx:id="tb1P1" mnemonicParsing="false" text="pom.xml" />
+                                    <ToggleButton fx:id="tb2P1" mnemonicParsing="false" text="pom.xml (param)" />
+                                    <ToggleButton fx:id="tb3P1" mnemonicParsing="false" text="build.gradle" />
+                                    <ToggleButton fx:id="tb4P1" mnemonicParsing="false" text="build.gradle (param)" />
+                                 </children>
+                              </FlowPane>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="15.0" right="5.0" />
+                           </padding>
+                        </VBox>
+                        <Separator prefWidth="200.0" />
+                     </children>
+                  </VBox>
+               </top>
+               <center>
+                  <HBox alignment="TOP_CENTER" spacing="10.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" spacing="5.0">
+                           <children>
+                              <Label text="Input" />
+                              <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity">
+                                 <content>
+                                    <TextArea fx:id="taInputP1" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="600.0">
+                                       <font>
+                                          <Font name="Consolas" size="12.0" />
+                                       </font></TextArea>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" spacing="5.0">
+                           <children>
+                              <Label text="output" />
+                              <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity">
+                                 <content>
+                                    <TextArea fx:id="taOutputP1" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="600.0">
+                                       <font>
+                                          <Font name="Consolas" size="12.0" />
+                                       </font></TextArea>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </children>
+                     <opaqueInsets>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="15.0" left="1.0" right="1.0" top="5.0" />
+                     </padding>
+                  </HBox>
+               </center>
+            </BorderPane>
+         </content>
     </Tab>
-    <Tab text=" xml parser">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-      </content>
-    </Tab>
+      <Tab text=" xml parser">
+          <content>
+              <BorderPane>
+                  <top>
+                      <VBox prefWidth="100.0" BorderPane.alignment="CENTER">
+                          <children>
+                              <Label text="pom.xml → pom.xml(param)/build.gradle">
+                                  <padding>
+                                      <Insets bottom="10.0" left="20.0" top="10.0" />
+                                  </padding>
+                                  <font>
+                                      <Font name="Book Antiqua" size="18.0" />
+                                  </font>
+                              </Label>
+                              <VBox spacing="15.0">
+                                  <children>
+                                      <Separator prefWidth="200.0" />
+                                      <FlowPane prefWrapLength="0.0">
+                                          <children>
+                                              <Label text="coverting to">
+                                                  <FlowPane.margin>
+                                                      <Insets right="10.0" />
+                                                  </FlowPane.margin>
+                                              </Label>
+                                              <ToggleButton fx:id="tb1P2" mnemonicParsing="false" text="pom.xml" />
+                                              <ToggleButton fx:id="tb2P2" mnemonicParsing="false" text="pom.xml (param)" />
+                                              <ToggleButton fx:id="tb3P2" mnemonicParsing="false" text="build.gradle" />
+                                              <ToggleButton fx:id="tb4P2" mnemonicParsing="false" text="build.gradle (param)" />
+                                          </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                      </FlowPane>
+                                  </children>
+                                  <padding>
+                                      <Insets bottom="10.0" left="15.0" right="5.0" />
+                                  </padding>
+                              </VBox>
+                              <Separator prefWidth="200.0" />
+                          </children>
+                      </VBox>
+                  </top>
+                  <center>
+                      <HBox alignment="TOP_CENTER" spacing="10.0" BorderPane.alignment="CENTER">
+                          <children>
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" spacing="5.0">
+                                  <children>
+                                      <Label text="Input" />
+                                      <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity">
+                                          <content>
+                                              <TextArea fx:id="taInputP2" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="600.0" wrapText="true" />
+                                          </content>
+                                      </ScrollPane>
+                                  </children>
+                              </VBox>
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" spacing="5.0">
+                                  <children>
+                                      <Label text="output" />
+                                      <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity">
+                                          <content>
+                                              <TextArea fx:id="taOutputP2" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="600.0" wrapText="true" />
+                                          </content>
+                                      </ScrollPane>
+                                  </children>
+                              </VBox>
+                          </children>
+                          <opaqueInsets>
+                              <Insets bottom="10.0" left="10.0" right="10.0" />
+                          </opaqueInsets>
+                          <padding>
+                              <Insets bottom="15.0" left="1.0" right="1.0" top="5.0" />
+                          </padding>
+                      </HBox>
+                  </center>
+              </BorderPane>
+          </content>
+      </Tab>
       <Tab text="grdale parser">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-        </content>
+          <content>
+              <BorderPane>
+                  <top>
+                      <VBox BorderPane.alignment="CENTER">
+                          <children>
+                              <Label text="build.gradle→ pom.xml/build.gradle (param)">
+                                  <padding>
+                                      <Insets bottom="10.0" left="20.0" top="10.0" />
+                                  </padding>
+                                  <font>
+                                      <Font name="Book Antiqua" size="18.0" />
+                                  </font>
+                              </Label>
+                              <VBox spacing="15.0">
+                                  <children>
+                                      <Separator prefWidth="200.0" />
+                                      <FlowPane prefWrapLength="0.0">
+                                          <children>
+                                              <Label text="coverting to">
+                                                  <FlowPane.margin>
+                                                      <Insets right="10.0" />
+                                                  </FlowPane.margin>
+                                              </Label>
+                                              <ToggleButton fx:id="tb1P3" mnemonicParsing="false" text="pom.xml" />
+                                              <ToggleButton fx:id="tb2P3" mnemonicParsing="false" text="pom.xml (param)" />
+                                              <ToggleButton fx:id="tb3P3" mnemonicParsing="false" text="build.gradle" />
+                                              <ToggleButton fx:id="tb4P3" mnemonicParsing="false" text="build.gradle (param)" />
+                                          </children>
+                                          <VBox.margin>
+                                              <Insets />
+                                          </VBox.margin>
+                                      </FlowPane>
+                                  </children>
+                                  <padding>
+                                      <Insets bottom="10.0" left="15.0" right="5.0" />
+                                  </padding>
+                              </VBox>
+                              <Separator prefWidth="200.0" />
+                          </children>
+                      </VBox>
+                  </top>
+                  <center>
+                      <HBox alignment="TOP_CENTER" spacing="10.0" BorderPane.alignment="CENTER">
+                          <children>
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" spacing="5.0">
+                                  <children>
+                                      <Label text="Input" />
+                                      <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity">
+                                          <content>
+                                              <TextArea fx:id="taInputP3" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="600.0" wrapText="true" />
+                                          </content>
+                                      </ScrollPane>
+                                  </children>
+                              </VBox>
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" spacing="5.0">
+                                  <children>
+                                      <Label text="output" />
+                                      <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity">
+                                          <content>
+                                              <TextArea fx:id="taOutputP3" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="600.0" wrapText="true" />
+                                          </content>
+                                      </ScrollPane>
+                                  </children>
+                              </VBox>
+                          </children>
+                          <opaqueInsets>
+                              <Insets bottom="10.0" left="10.0" right="10.0" />
+                          </opaqueInsets>
+                          <padding>
+                              <Insets bottom="15.0" left="1.0" right="1.0" top="5.0" />
+                          </padding>
+                      </HBox>
+                  </center>
+              </BorderPane>
+          </content>
       </Tab>
   </tabs>
 </TabPane>
