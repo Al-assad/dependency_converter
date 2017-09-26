@@ -1,7 +1,7 @@
 # dependency_converter
 pom.xml,build.gradle 依赖代码转化工具
 
-#### 开发说明
+### 开发说明
 
    开发这个工具主要是自己日常开发时，使用 gradle 或 maven 在处理依赖源的格式上很麻烦，特别是使用 MSSH 框架时，框架的依赖很多，
 而且IDEA，Eclipse 没有相应的批量导入转化插件，一般我和大多数一样，做几个 MSSH 的 Maven，Gradle 框架，之后使用再在这几个基本框架上
@@ -14,8 +14,9 @@ pom.xml,build.gradle 依赖代码转化工具
 
   为了方便日常使用，使用 JavaFX 写了个壳；  
 
+  我已经编译好一个一个jar版本，目录于 jar/dependency_converter.jar ，需要在 JRE8+ 环境下运行；  
 
-#### 环境说明   
+### 环境说明   
 * 源码构建工具：Gradle
 * 开发语言和版本：Kotlin 1.1.4     
                groovy 2.4.10  
@@ -23,7 +24,7 @@ pom.xml,build.gradle 依赖代码转化工具
 * 运行环境：JRE 8+  
 
 
-##### 示例图样
+### 示例图样
 **程序界面**  
 <img src="./sample/1.PNG" width="600"/><br/>  
 
