@@ -6,7 +6,7 @@ package core
  * Date: 2017/9/26 9:01
  * Description: 对象化的坐标组
  */
-class CoordList{
+internal class CoordList{
 
     var coordList:ArrayList<Coord> = ArrayList();   //储存依赖坐标列表
     val mergeList:Array<String> = arrayOf("spring","struts2","hibernate","mybatis"); //需要合并的列表

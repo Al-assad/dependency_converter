@@ -1,5 +1,6 @@
 package view
 
+import core.StrParser
 import javafx.stage.Stage
 
 /**
@@ -13,6 +14,8 @@ class Controller{
 
 
     fun initialize(){
+
+
 
     }
     fun start(stage: Stage){

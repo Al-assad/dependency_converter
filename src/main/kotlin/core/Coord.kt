@@ -7,7 +7,7 @@ package core
  * Description: 依赖坐标类
  * Version1.0 该版本强制要求输入版本号，下个版本提供版本属性智能生成
  */
-class Coord(val groupId:String, val artifactId:String, val version:String){
+internal class Coord(val groupId:String, val artifactId:String, val version:String){
 
     //以XML输出（pom.xml依赖格式）
     fun toXML():String{

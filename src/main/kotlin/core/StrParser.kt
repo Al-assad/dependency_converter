@@ -10,7 +10,7 @@ import java.util.regex.Pattern
  * Description: 普通字符转换类:支持被匹配的字符串含有注释
  */
 
-class StrParser(pattern:String):Parser{
+internal class StrParser(pattern:String):Parser{
 
     var coordCh:Array<String> = arrayOf("g","a","v");
     var splitCh:Array<String> = arrayOf(":",":");
@@ -87,9 +87,6 @@ class StrParser(pattern:String):Parser{
     override fun toGradle(fetch:Boolean ):String{
         return coordList.toGradle(fetch);
     }
-
-
-
 
 
 
