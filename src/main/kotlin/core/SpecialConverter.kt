@@ -6,3 +6,6 @@ package core
  * Date: 2017/9/25 20:50
  * Description:
  */
+class SpecialConverter{
+
+}
