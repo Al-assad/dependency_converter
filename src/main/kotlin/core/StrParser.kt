@@ -91,7 +91,6 @@ internal class StrParser(pattern:String):Parser{
 
 
 }
-/*
 
 fun main(args: Array<String>) {
     var converter = StrParser("g:a:v");
@@ -139,9 +138,10 @@ commons-fileupload:commons-fileupload:1.3.3
 org.apache.commons:commons-lang3:3.6
 
     """.trimIndent());
-    println(converter.toGradle(true));
+    println(converter.toXML(true));
+
+    
 
 
 }
-*/
 
