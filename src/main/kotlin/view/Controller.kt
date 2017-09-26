@@ -16,7 +16,6 @@ class Controller{
     fun initialize(){
 
 
-
     }
     fun start(stage: Stage){
     }
