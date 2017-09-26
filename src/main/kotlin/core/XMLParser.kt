@@ -8,17 +8,28 @@ package core
  */
 internal class XMLParser:Parser{
 
-
-
-
-
-
-    override fun toXML(fetch: Boolean): String {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    private var coordList:CoordList = CoordList();
+    fun compile(xmlstring:String){
+        coordList = XMLHandle.parseToCoordList(xmlstring);
     }
 
+    override fun toXML(fetch: Boolean): String{
+        return coordList.toXML(fetch);
+    }
     override fun toGradle(fetch: Boolean): String {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return coordList.toGradle(fetch);
     }
 
 }
+
+/*
+fun main(args: Array<String>) {
+    var parser:XMLParser = XMLParser();
+    val str = ""
+
+
+    parser.compile(str);
+    println(parser.toGradle(true));
+
+
+}*/

@@ -90,7 +90,7 @@ internal class CoordList{
         }
     }
 
-    //确认coord是否包含在属性依赖列表中
+    //确认coord是偶
     private fun check(coord:Coord):String?{
         for(prop in propList){
             if(coord.artifactId.startsWith(prop.get(0)) && coord.version == prop.get(1))

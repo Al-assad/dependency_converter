@@ -138,9 +138,9 @@ commons-fileupload:commons-fileupload:1.3.3
 org.apache.commons:commons-lang3:3.6
 
     """.trimIndent());
-    println(converter.toXML(true));
+    println(converter.toGradle(true));
 
-    
+
 
 
 }

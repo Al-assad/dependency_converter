@@ -7,7 +7,7 @@ package core
  * Description: 依赖坐标类
  * Version1.0 该版本强制要求输入版本号，下个版本提供版本属性智能生成
  */
-internal class Coord(val groupId:String, val artifactId:String, val version:String){
+internal class Coord(val groupId:String, val artifactId:String, val version:String ){
 
     //以XML输出（pom.xml依赖格式）
     fun toXML():String{
@@ -36,7 +36,7 @@ internal class Coord(val groupId:String, val artifactId:String, val version:Stri
         return str;
     }
     fun toParamGradle(versionFlag:String):String{
-        val str:String = "  complie '$groupId:$artifactId:${'$'}{${versionFlag}_version}'";
+        val str:String = "  complie \"$groupId:$artifactId:${'$'}{${versionFlag}_version}\"";
         return str;
     }
 
