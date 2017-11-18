@@ -32,11 +32,11 @@ internal class Coord(val groupId:String, val artifactId:String, val version:Stri
 
     //以 build.gradle 依赖格式输出
     fun toGradle():String{
-        val str:String = "  complie '$groupId:$artifactId:$version'";
+        val str:String = "  compile '$groupId:$artifactId:$version'";
         return str;
     }
     fun toParamGradle(versionFlag:String):String{
-        val str:String = "  complie \"$groupId:$artifactId:${'$'}{${versionFlag}_version}\"";
+        val str:String = "  compile \"$groupId:$artifactId:${'$'}{${versionFlag}_version}\"";
         return str;
     }
 
