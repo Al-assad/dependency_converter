@@ -34,12 +34,12 @@ pom.xml,build.gradle 依赖代码转化工具
 **将格式文本批量处理为 pom.xml 依赖格式，同时提取版本变量**      
 <img src="./sample/3.PNG" width="600"/><br/>
 
-**将格式文本批量处理为 buil.gradle 依赖格式**      
+**将格式文本批量处理为 build.gradle 依赖格式**      
 <img src="./sample/4.PNG" width="600"/><br/>
 
-**将格式文本批量处理为 buil.gradle 依赖格式，同时提取版本变量**     
+**将格式文本批量处理为 build.gradle 依赖格式，同时提取版本变量**     
 <img src="./sample/5.PNG" width="600"/><br/>
 
-**支持 buil.gradle 和 pom.xml 依赖格式的相互转化**     
+**支持 build.gradle 和 pom.xml 依赖格式的相互转化**     
 <img src="./sample/6.PNG" width="600"/><br/>
 <img src="./sample/7.PNG" width="600"/><br/>
